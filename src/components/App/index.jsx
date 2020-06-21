@@ -9,15 +9,10 @@ import './style.scss';
 
 const themes = {
         light: {
-
                 inverted: false,
-                background: ''
-
         },
         dark: {
                 inverted: true,
-                background: false
-
         }
 };
 
@@ -25,13 +20,9 @@ export const ThemeContext = React.createContext(themes.light);
 
 function App() {
 
-        const theme = useContext(ThemeContext);
-        console.log(theme);
-
-
         return (
                 <ThemeContext.Provider value={themes.dark}>
-                        <div className={theme.background} >
+                        <div >
                                 <Container fluid >
                                         <HeaderBar />
                                         <MovieList />
