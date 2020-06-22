@@ -1,6 +1,9 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Card, Popup, Image, Rating, Button } from 'semantic-ui-react'
 
+import { ThemeContext } from '../../context';
+
+import './style.scss';
 
 export default function MovieCard({ movie, genres = [] }) {
 
@@ -10,8 +13,10 @@ export default function MovieCard({ movie, genres = [] }) {
 
         const genreBadges = genres && genres.filter(genre => genre_ids.find(id => genre.id === id));
 
+        const { dark } = useContext(ThemeContext);
+
         return (
-                <Card color='purple'>
+                <Card className={dark ? 'card-dark' : ''} >
                         <Popup content={movie.overview} trigger={<Image src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} wrapped ui={false} />} />
 
                         <Card.Content>
@@ -22,10 +27,11 @@ export default function MovieCard({ movie, genres = [] }) {
                                 <Card.Description>
                                         {genreBadges.map(genre => (
                                                 <Button
+
                                                         size='mini'
                                                         compact
-                                                        inverted
-                                                        color='green'
+                                                        basic
+                                                        color={dark ? 'black' : 'red'}
                                                         key={genre.id}>{genre.name}</Button>))}
                                 </Card.Description>
                         </Card.Content>
