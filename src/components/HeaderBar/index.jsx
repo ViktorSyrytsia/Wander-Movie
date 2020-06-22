@@ -1,11 +1,10 @@
 import React, { useState, useContext } from 'react'
 import { Menu, Icon } from 'semantic-ui-react'
 
-import { ThemeContext } from '../App'
+import { ThemeContext } from '../App/ThemeContext';
 
-export default function HeaderBar() {
+export default function HeaderBar({ themeChange }) {
         const [activeItem, setActiveItem] = useState('Home');
-
         const handleItemClick = (name) => setActiveItem(name);
 
         const theme = useContext(ThemeContext);
@@ -38,6 +37,12 @@ export default function HeaderBar() {
                                 onClick={() => handleItemClick('Category')}
                         >
                                 Category
+</Menu.Item>
+                        <Menu.Item
+                                position='right'
+                                onClick={() => themeChange()}
+                        >
+                                Change Theme
 </Menu.Item>
                         <Menu.Item
                                 position='right'

@@ -1,12 +1,18 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useContext } from 'react';
 
-import { Card, Container } from 'semantic-ui-react';
+import { ThemeContext } from '../App/ThemeContext';
+
+import { Card } from 'semantic-ui-react';
 
 import MovieCard from '../MovieCard';
 import PaginationPanel from '../../containers/PaginationPanel';
 import LoadingIndicator from '../LoadingIndicator';
 
+import './style.scss';
+
 function MovieList({ movieList: { results }, activePage, isMoviesLoading, getMovies, getGenres, genresList: { genres } }) {
+
+
 
         useEffect(() => {
 
@@ -15,9 +21,11 @@ function MovieList({ movieList: { results }, activePage, isMoviesLoading, getMov
 
         }, [activePage])
 
+        const theme = useContext(ThemeContext);
 
         return (
-                <Container>
+
+                <div className={`list-container${theme.inverted ? '-dark' : ''}`}>
                         {
                                 isMoviesLoading ? <LoadingIndicator /> :
                                         <><Card.Group itemsPerRow={5}>
@@ -26,7 +34,9 @@ function MovieList({ movieList: { results }, activePage, isMoviesLoading, getMov
                                                 <PaginationPanel />
                                         </>
                         }
-                </Container>
+                </div>
+
+
         )
 }
 

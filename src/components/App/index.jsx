@@ -1,33 +1,22 @@
-import React, { useContext } from 'react'
-import HeaderBar from '../HeaderBar';
+import React from 'react';
 
-import { Container } from 'semantic-ui-react';
-
+import HeaderBar from '../../containers/HeaderBar';
 import MovieList from '../../containers/MovieList';
+
+import { ThemeContext } from './ThemeContext';
 
 import './style.scss';
 
-const themes = {
-        light: {
-                inverted: false,
-        },
-        dark: {
-                inverted: true,
-        }
-};
+function App({ theme }) {
 
-export const ThemeContext = React.createContext(themes.light);
 
-function App() {
 
         return (
-                <ThemeContext.Provider value={themes.dark}>
-                        <div >
-                                <Container fluid >
-                                        <HeaderBar />
-                                        <MovieList />
-                                </Container>
-                        </div>
+                <ThemeContext.Provider value={theme}>
+                        < >
+                                <HeaderBar />
+                                <MovieList />
+                        </>
                 </ThemeContext.Provider>
 
         )
