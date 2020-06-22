@@ -1,6 +1,6 @@
 import React, { useEffect, useContext } from 'react';
 
-import { ThemeContext } from '../App/ThemeContext';
+import { ThemeContext } from '../../context';
 
 import { Card } from 'semantic-ui-react';
 
@@ -12,7 +12,7 @@ import './style.scss';
 
 function MovieList({ movieList: { results }, activePage, isMoviesLoading, getMovies, getGenres, genresList: { genres } }) {
 
-
+        const { dark } = useContext(ThemeContext);
 
         useEffect(() => {
 
@@ -21,11 +21,11 @@ function MovieList({ movieList: { results }, activePage, isMoviesLoading, getMov
 
         }, [activePage])
 
-        const theme = useContext(ThemeContext);
+
 
         return (
 
-                <div className={`list-container${theme.inverted ? '-dark' : ''}`}>
+                <div className={`list-container${dark ? '-dark' : ''}`}>
                         {
                                 isMoviesLoading ? <LoadingIndicator /> :
                                         <><Card.Group itemsPerRow={5}>

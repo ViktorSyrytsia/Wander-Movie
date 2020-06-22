@@ -1,16 +1,16 @@
 import React, { useState, useContext } from 'react'
-import { Menu, Icon } from 'semantic-ui-react'
+import { Menu, Icon, Button } from 'semantic-ui-react';
 
-import { ThemeContext } from '../App/ThemeContext';
+import { ThemeContext } from '../../context';
 
-export default function HeaderBar({ themeChange }) {
+export default function HeaderBar() {
         const [activeItem, setActiveItem] = useState('Home');
         const handleItemClick = (name) => setActiveItem(name);
 
-        const theme = useContext(ThemeContext);
+        const { toggle, dark } = useContext(ThemeContext);
 
         return (
-                <Menu size='massive' stackable inverted={theme.inverted}>
+                <Menu size='massive' stackable inverted={dark}>
                         <Menu.Item>
                                 <Icon name='video camera' />Wander Movie
                         </Menu.Item>
@@ -40,10 +40,13 @@ export default function HeaderBar({ themeChange }) {
 </Menu.Item>
                         <Menu.Item
                                 position='right'
-                                onClick={() => themeChange()}
                         >
-                                Change Theme
-</Menu.Item>
+                                <Button
+
+                                        onClick={toggle}
+                                        color={dark ? 'twitter' : 'google plus'}
+                                >{dark ? 'Dark' : 'Light'}</Button>
+                        </Menu.Item>
                         <Menu.Item
                                 position='right'
                                 name='User'

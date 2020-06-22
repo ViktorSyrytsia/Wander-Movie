@@ -1,27 +1,21 @@
 import React from 'react';
 
-import HeaderBar from '../../containers/HeaderBar';
+import HeaderBar from '../HeaderBar';
 import MovieList from '../../containers/MovieList';
 
-import { ThemeContext } from './ThemeContext';
+import { ThemeProvider } from '../../context';
 
 import './style.scss';
 
-function App({ theme }) {
 
 
-
+const App = () => {
         return (
-                <ThemeContext.Provider value={theme}>
-                        < >
-                                <HeaderBar />
-                                <MovieList />
-                        </>
-                </ThemeContext.Provider>
-
+                <ThemeProvider>
+                        <HeaderBar />
+                        <MovieList />
+                </ThemeProvider>
         )
 }
-
-
 
 export default App;
