@@ -1,7 +1,10 @@
-import React, { useState, useContext } from 'react'
+import React, { useState, useContext } from 'react';
+import { Link } from 'react-router-dom';
+import { ThemeContext } from '../../context';
+
 import { Menu, Icon, Button } from 'semantic-ui-react';
 
-import { ThemeContext } from '../../context';
+
 
 export default function HeaderBar() {
         const [activeItem, setActiveItem] = useState('Home');
@@ -20,8 +23,8 @@ export default function HeaderBar() {
                                 active={activeItem === 'Home'}
                                 onClick={() => handleItemClick('Home')}
                         >
-                                Home
-</Menu.Item>
+                                <Link to='/'>Home</Link>
+                        </Menu.Item>
 
                         <Menu.Item
                                 name='Movies'
