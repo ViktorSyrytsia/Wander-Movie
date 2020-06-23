@@ -28,9 +28,9 @@ function MovieList({ movieList: { results }, activePage, isMoviesLoading, getMov
                         {
                                 isMoviesLoading ? <LoadingIndicator /> :
                                         <><Card.Group itemsPerRow={5}>
-                                                {results.map(movie => <MovieCard key={movie.id} movie={movie} genres={genres} />)}
+                                                {results && results.map(movie => <MovieCard key={movie.id} movie={movie} genres={genres} />)}
                                         </Card.Group>
-                                                <PaginationPanel />
+                                                {results && <PaginationPanel />}
                                         </>
                         }
                 </div>

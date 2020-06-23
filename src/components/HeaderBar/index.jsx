@@ -31,8 +31,8 @@ export default function HeaderBar() {
                                 active={activeItem === 'Movies'}
                                 onClick={() => handleItemClick('Movies')}
                         >
-                                Movies
-</Menu.Item>
+                                <Link to='/movielist'>MovieList</Link>
+                        </Menu.Item>
 
                         <Menu.Item
                                 name='Category'

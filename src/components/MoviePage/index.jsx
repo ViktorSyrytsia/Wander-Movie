@@ -1,6 +1,6 @@
 import React, { useEffect, useContext } from 'react';
 import { ThemeContext } from '../../context';
-import { Rating, Button } from 'semantic-ui-react';
+import { Button } from 'semantic-ui-react';
 
 import { withRouter } from 'react-router';
 
