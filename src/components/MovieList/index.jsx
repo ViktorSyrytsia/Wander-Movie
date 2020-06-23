@@ -1,5 +1,4 @@
 import React, { useEffect, useContext } from 'react';
-
 import { ThemeContext } from '../../context';
 
 import { Card } from 'semantic-ui-react';
