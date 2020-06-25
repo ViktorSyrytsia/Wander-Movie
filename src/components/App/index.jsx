@@ -5,6 +5,7 @@ import HeaderBar from '../HeaderBar';
 import MovieList from '../../containers/MovieList';
 import HomePage from '../../pages/HomePage';
 import MoviePage from '../../containers/MoviePage';
+import SearchPage from '../../containers/SearchPage';
 
 import { ThemeProvider } from '../../context';
 
@@ -20,9 +21,13 @@ const App = () => {
                                 <HeaderBar />
                                 <Route exact path="/">
                                         <HomePage />
+
                                 </Route>
                                 <Route exact path="/movielist">
                                         <MovieList />
+                                </Route>
+                                <Route exact path="/search">
+                                        <SearchPage />
                                 </Route>
                                 <Route path="/movielist/:id"
                                         render={(routerProps) => {

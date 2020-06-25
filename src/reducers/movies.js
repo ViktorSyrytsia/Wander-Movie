@@ -2,7 +2,8 @@ const initialState = {
         movieList: [],
         isMoviesLoading: true,
         activePage: 1,
-        movieFromId: {}
+        movieFromId: {},
+        movieFromSearch: {}
 }
 
 export default (state = initialState, action) => {
@@ -20,6 +21,13 @@ export default (state = initialState, action) => {
                                 ...state,
                                 isMoviesLoading: false,
                                 movieFromId: action.payload
+                        }
+
+                case 'MOVIE_FROM_SEARCH_LOADED':
+                        return {
+                                ...state,
+                                isMoviesLoading: false,
+                                movieFromSearch: action.payload
                         }
 
                 case 'ACTIVE_PAGE_CHANGE':
