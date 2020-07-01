@@ -6,10 +6,12 @@ import MovieList from '../../containers/MovieList';
 import HomePage from '../../pages/HomePage';
 import MoviePage from '../../containers/MoviePage';
 import SearchPage from '../../containers/SearchPage';
+import LoginPage from '../../pages/LoginPage';
 
 import { ThemeProvider } from '../../context';
 
 import './style.scss';
+
 
 
 
@@ -28,6 +30,9 @@ const App = () => {
                                 </Route>
                                 <Route exact path="/search">
                                         <SearchPage />
+                                </Route>
+                                <Route exact path="/loginpage">
+                                        <LoginPage />
                                 </Route>
                                 <Route path="/movielist/:id"
                                         render={(routerProps) => {

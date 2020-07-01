@@ -1,0 +1,42 @@
+.login-page-main {
+  position: relative;
+}
+
+.login-page {
+  margin-top: 100px;
+  position: absolute;
+  width: 400px;
+  height: 200px;
+  left: 50%;
+  transform: translate(-50%, -0%);
+  border-radius: 18px;
+  background: #ffffff;
+  box-shadow: 10px 10px 20px #e3e3e3, -10px -10px 20px #ffffff;
+  padding: 20px;
+
+  &-title {
+    font-size: 30px;
+    font-weight: bold;
+    opacity: 0.8;
+    text-align: center;
+    margin-top: 20px;
+  }
+  &-meta {
+    margin-top: 10px;
+    font-size: 18px;
+    opacity: 0.6;
+    text-align: center;
+  }
+  &-container {
+    text-align: center;
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-evenly;
+
+    & > button {
+      width: 150px;
+      height: 50px;
+      cursor: pointer;
+    }
+  }
+}
