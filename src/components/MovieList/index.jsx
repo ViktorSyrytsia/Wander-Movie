@@ -1,7 +1,7 @@
 import React, { useEffect, useContext } from 'react';
 import { ThemeContext } from '../../context';
 
-import { Card } from 'semantic-ui-react';
+import { Card, Container } from 'semantic-ui-react';
 
 import MovieCard from '../MovieCard';
 import PaginationPanel from '../../containers/PaginationPanel';
@@ -27,11 +27,11 @@ function MovieList({ movieList: { results }, activePage, isMoviesLoading, getMov
                 <div className={`list-container${dark ? '-dark' : ''}`}>
                         {
                                 isMoviesLoading ? <LoadingIndicator /> :
-                                        <><Card.Group itemsPerRow={5}>
+                                        <Container><Card.Group itemsPerRow={5}>
                                                 {results && results.map(movie => <MovieCard key={movie.id} movie={movie} genres={genres} />)}
                                         </Card.Group>
                                                 {results && <PaginationPanel />}
-                                        </>
+                                        </Container>
                         }
                 </div>
 

@@ -1,25 +1,29 @@
-import React, { useState } from 'react';
-import { Card } from 'semantic-ui-react';
+import React, { useState, useEffect } from 'react';
+import { Card, Container } from 'semantic-ui-react';
 import MovieCard from '../../components/MovieCard';
 
-const SearchPage = ({ movieFromSearch, getMovieFromSearch }) => {
+import './style.scss';
 
-        console.log(movieFromSearch.results);
-        console.log(getMovieFromSearch);
+const SearchPage = ({ movieFromSearch = [], getMovieFromSearch, getGenres, genresList: { genres } }) => {
+        useEffect(() => {
+                getGenres();
+                getMovieFromSearch(query)
+        }, [])
 
         const [query, setQuery] = useState('');
-        console.log(query);
-
 
         return (
                 <div>
-                        <h2>SEARCH</h2>
-                        <input value={query} type='text' placeholder='enter movie name' onChange={(e) => { setQuery(e.target.value) }} ></input>
-                        <button onClick={() => getMovieFromSearch(query)}>Find movie</button>
-                        <><Card.Group itemsPerRow={5}>
-                                {movieFromSearch.results && movieFromSearch.results.map(movie => <MovieCard key={movie.id} movie={movie} />)}
+                        <div className='search-container'>
+                                <h2 className='search-title'>SEARCH</h2>
+                                <input className='search-input' value={query} type='text' placeholder={query} onChange={(e) => { setQuery(e.target.value) }} ></input>
+                                <button className='search-button' onClick={() => getMovieFromSearch(query)}>Find movie</button>
+                        </div>
+
+                        <Container><Card.Group itemsPerRow={5}>
+                                {movieFromSearch.results && movieFromSearch.results.map(movie => <MovieCard key={movie.id} movie={movie} genres={genres} />)}
                         </Card.Group>
-                        </>
+                        </Container>
                 </div>
         )
 }

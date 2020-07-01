@@ -35,12 +35,12 @@ export default function HeaderBar() {
                         </Menu.Item>
 
                         <Menu.Item
-                                name='Category'
-                                active={activeItem === 'Category'}
-                                onClick={() => handleItemClick('Category')}
+                                name='Search'
+                                active={activeItem === 'Search'}
+                                onClick={() => handleItemClick('Search')}
                         >
-                                Category
-</Menu.Item>
+                                <Link to='/search'>Search</Link>
+                        </Menu.Item>
                         <Menu.Item
                                 position='right'
                         >

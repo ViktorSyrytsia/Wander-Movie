@@ -1,9 +1,14 @@
 import SearchPage from '../pages/SearchPage';
 import { connect } from 'react-redux';
 import * as getMovieFromSearchActions from '../actions/getMovieFromSearch';
+import * as getGenres from '../actions/getGenres';
 
-const mapStateToProps = ({ movies: { movieFromSearch } }) => ({
-        movieFromSearch
+const actions = { ...getMovieFromSearchActions, ...getGenres };
+
+const mapStateToProps = ({ movies: { movieFromSearch }, genres: { genresList } }) => ({
+        movieFromSearch,
+        genresList
+
 })
 
-export default connect(mapStateToProps, getMovieFromSearchActions)(SearchPage)
+export default connect(mapStateToProps, actions)(SearchPage)
