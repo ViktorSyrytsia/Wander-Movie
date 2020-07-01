@@ -1,6 +1,6 @@
 import React from 'react';
-
-import { Button } from 'semantic-ui-react';
+import SignInModalPage from './SignInModalPage';
+import SignUpModalPage from '../../containers/SignUpModalPage';
 
 import './style.scss';
 
@@ -11,8 +11,8 @@ const LoginPage = () => {
                                 <div className='login-page-title'>Welcome</div>
                                 <div className='login-page-meta'>Please, login in to your account. Or create a new account</div>
                                 <div className='login-page-container'>
-                                        <Button color='google plus'>Sign In</Button>
-                                        <Button color='twitter'>Sign up</Button>
+                                        <SignInModalPage />
+                                        <SignUpModalPage />
                                 </div>
 
                         </div>
