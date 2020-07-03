@@ -1,5 +1,5 @@
 import React from 'react';
-import SignInModalPage from './SignInModalPage';
+import SignInModalPage from '../../containers/SignInModalPage';
 import SignUpModalPage from '../../containers/SignUpModalPage';
 
 import './style.scss';

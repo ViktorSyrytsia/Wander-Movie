@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Modal, Button, Header, Form } from 'semantic-ui-react';
 
 import './style.scss';
@@ -11,6 +11,8 @@ const SignUpModalPage = ({ setCurrentUser }) => {
         const [email, setEmail] = useState('');
 
         const [user, setUser] = useState({});
+
+        const [isDisabled, setIsDisabled] = useState(false);
 
         const handleChange = (e, action) => {
                 switch (action) {
@@ -31,6 +33,10 @@ const SignUpModalPage = ({ setCurrentUser }) => {
                 }
         }
 
+        useEffect(() => {
+                setCurrentUser(user);
+        }, [user])
+
         const handleSubmit = () => {
                 setUser({
                         userName,
@@ -38,8 +44,7 @@ const SignUpModalPage = ({ setCurrentUser }) => {
                         repeatPassword,
                         email
                 });
-                debugger
-                setCurrentUser(user);  //redux dispatch func
+                setIsDisabled(true)
         }
 
         return (
@@ -81,7 +86,7 @@ const SignUpModalPage = ({ setCurrentUser }) => {
                                                         value={email}
                                                         onChange={(e) => handleChange(e, 'setEmail')}
                                                 />
-                                                <Form.Button>Submit</Form.Button>
+                                                <Form.Button color='twitter' disabled={isDisabled}>Submit</Form.Button>
                                         </Form>
                                 </Modal.Description>
                         </Modal.Content>

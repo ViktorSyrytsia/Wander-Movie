@@ -6,7 +6,7 @@ import { Menu, Icon, Button } from 'semantic-ui-react';
 
 
 
-export default function HeaderBar() {
+export default function HeaderBar({ activeUser }) {
         const [activeItem, setActiveItem] = useState('Home');
         const handleItemClick = (name) => setActiveItem(name);
 
@@ -52,12 +52,12 @@ export default function HeaderBar() {
                         </Menu.Item>
                         <Menu.Item
                                 position='right'
-                                name='User'
+                                name={activeUser.userName}
                                 active={activeItem === 'User'}
                                 onClick={() => handleItemClick('User')}
                         >
-                                User
-</Menu.Item>
+
+                        </Menu.Item>
                 </Menu>
         )
 }

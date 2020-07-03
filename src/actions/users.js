@@ -4,3 +4,7 @@ export const setCurrentUser = (user) => ({
         payload: user
 })
 
+export const setActiveUser = (user) => ({
+        type: 'SET_ACTIVE_USER',
+        payload: user
+})

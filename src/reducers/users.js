@@ -1,5 +1,6 @@
 const initialState = {
-        currentUser: {}
+        currentUser: {},
+        activeUser: {}
 }
 
 export default (state = initialState, action) => {
@@ -7,9 +8,19 @@ export default (state = initialState, action) => {
                 case 'SET_CURRENT_USER':
 
                         return {
+                                ...state,
                                 currentUser: {
                                         ...action.payload
                                 }
+                        }
+                case 'SET_ACTIVE_USER':
+
+                        return {
+                                ...state,
+                                activeUser: {
+                                        ...action.payload
+                                }
+
                         }
 
                 default:

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 
-import HeaderBar from '../HeaderBar';
+import HeaderBar from '../../containers/HeaderBar';
 import MovieList from '../../containers/MovieList';
 import HomePage from '../../pages/HomePage';
 import MoviePage from '../../containers/MoviePage';
